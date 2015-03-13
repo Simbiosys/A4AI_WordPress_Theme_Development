@@ -1,0 +1,144 @@
+<section class="country-detail" id="country-detail">
+  <div class="country-detail-wrapper">
+    <header>
+      <a href="/data" class="close" id="close" title="{{#labels}}{{close}}{{/labels}}">
+        <img src="{{path}}/images/cross.png" alt="{{#labels}}{{close}}{{/labels}}" />
+      </a>
+      {{>social}}
+      <img id="country-flag" class="flag" alt="" src="{{path}}/images/flags/blank.png" />
+      <p id="country-name" class="name"></p>
+      <p id="country-continent" class="continent"></p>
+    </header>
+    <div class="country-extra">
+      <div>
+        <p class="datum">
+          <span class="label">{{#labels}}{{population}}{{/labels}}</span>
+          <span class="value" id="population_label_this"></span>
+        </p>
+        <p class="datum">
+          <span class="label">{{#labels}}{{gni_per_capita}}{{/labels}}</span>
+          <span class="value" id="gni_label_this"></span>
+        </p>
+      </div>
+      <div>
+        <p class="datum">
+          <span class="label">{{#labels}}{{mobile_broadband_affordability}}{{/labels}}</span>
+          <span class="value" id="broadband_label_this"></span>
+        </p>
+        <p class="datum">
+          <span class="label">{{#labels}}{{people_living_in_poverty}}{{/labels}}</span>
+          <span class="value" id="poverty_label_this"></span>
+        </p>
+      </div>
+    </div>
+    <div class="indicator-section">
+      <div class="column">
+        <label for="country-indicator-selector">{{#labels}}{{select_indicator}}{{/labels}}</label>
+        <div class="button-select-wrapper">
+          <div class="select-wrapper">
+            <select id="country-indicator-selector"></select>
+          </div>
+          <button id="btn-country-indicator">
+            <span>{{#labels}}{{indicator_go}}{{/labels}}</span>
+          </button>
+        </div>
+        <h2 class="line-behind score"><span>{{#labels}}{{score}}{{/labels}}</span></h2>
+        <div class="two-columns">
+          <div>
+            <div class="country-chart" id="country-indicator-pie"></div>
+            <p class="indicator-scale"></p>
+          </div>
+          <div class="country-chart-bars">
+            <ul class="legend">
+              <li><span class="circle" id="legend-this-country-circle"></span> <span class="name" id="legend-this-country-name"></span></li>
+              <li><span class="circle" id="legend-mean-circle"></span> <span class="name" id="legend-mean-name"></span></li>
+            </ul>
+            <div id="country-indicator-bar"></div>
+          </div>
+        </div>
+        <h2 class="line-behind"><span>{{#labels}}{{ranking}}{{/labels}}</span></h2>
+        <div class="two-columns">
+          <div class="ranking-value this">
+            <span class="circle" id="ranking-this-country-value"></span>
+            <span class="label" id="ranking-this-country-label">{{#labels}}{{out_of}}{{/labels}}</span>
+          </div>
+          <div class="ranking-value mean">
+            <span class="circle" id="ranking-mean-value"></span>
+            <span class="label" id="ranking-mean-label">{{#labels}}{{out_of}}{{/labels}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="column column-general-status">
+        <h2 class="line-behind general-status"><span>{{#labels}}{{general_status}}{{/labels}}</span></h2>
+        <div class="country-this-index" id="country-this-index"></div>
+        <div class="two-columns subindices">
+          <div class="country-this-infrastructure" id="country-this-infrastructure"></div>
+          <div class="country-this-access" id="country-this-access"></div>
+        </div>
+      </div>
+    </div>
+    <!-- COMPARISON BUTTON -->
+    <div class="compare-selector">
+      <h2 id="compare-to" data-label="{{#labels}}{{compare_to}}{{/labels}}"></h2>
+      <div class="select-wrapper">
+        <select id="country-compare-selector">
+          <option value="" selected="selected" disabled="disabled">
+            {{#labels}}{{select_country}}{{/labels}}
+          </option>
+        </select>
+      </div>
+      <button id="btn-compare">
+        Compare
+      </button>
+    </div>
+    <!-- COMPARISON SECTION -->
+    <div class="compare-section" id="compare-section">
+      <div class="country-extra">
+        <div>
+          <p class="datum">
+            <span class="label">{{#labels}}{{population}}{{/labels}}</span>
+            <span class="value" id="population_label_other"></span>
+          </p>
+          <p class="datum">
+            <span class="label">{{#labels}}{{gni_per_capita}}{{/labels}}</span>
+            <span class="value" id="gni_label_other"></span>
+          </p>
+        </div>
+        <div>
+          <p class="datum">
+            <span class="label">{{#labels}}{{mobile_broadband_affordability}}{{/labels}}</span>
+            <span class="value" id="broadband_label_other"></span>
+          </p>
+          <p class="datum">
+            <span class="label">{{#labels}}{{people_living_in_poverty}}{{/labels}}</span>
+            <span class="value" id="poverty_label_other"></span>
+          </p>
+        </div>
+      </div>
+      <div class="indicator-section comparison">
+        <div class="column">
+          <div class="comparison-bar-chart" id="comparison-bar-chart"></div>
+          <h2 class="line-behind"><span>{{#labels}}{{ranking}}{{/labels}}</span></h2>
+          <div class="two-columns">
+            <div class="ranking-value this">
+              <span class="circle" id="ranking-other-country-value"></span>
+              <span class="label" id="ranking-other-country-label">{{#labels}}{{out_of}}{{/labels}}</span>
+            </div>
+            <div class="ranking-value mean">
+              <span class="circle" id="ranking-other-mean-value"></span>
+              <span class="label" id="ranking-other-mean-label">{{#labels}}{{out_of}}{{/labels}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="column column-general-status">
+          <h2 class="line-behind general-status"><span>{{#labels}}{{general_status}}{{/labels}}</span></h2>
+          <div class="country-this-index" id="country-other-index"></div>
+          <div class="two-columns subindices">
+            <div class="country-this-infrastructure" id="country-other-infrastructure"></div>
+            <div class="country-this-access" id="country-other-access"></div>
+          </div>
+        </div>
+        <div id="compare-section-bottom"></div>
+    </div>
+  </div>
+</section>

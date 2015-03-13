@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="{{path}}/styles/flags.css">
+<input type="hidden" id="path" value="{{path}}"></input>
+
+<article class="post static_page policy-post">
+  <h2>{{#labels}}{{policy_research}}{{/labels}}</h2>
+  <div class="introduction">
+    {{{data.policy.introduction}}}
+  </div>
+  <div class="entry policy">
+    <h3 id="best_practices">{{#labels}}{{policy_best_practices}}{{/labels}}</h3>
+    <div class="articles policy-practices">
+      {{{data.policy.practices}}}
+    </div>
+    <h3 id="affordability_report">{{#labels}}{{policy_affordability_report}}{{/labels}}</h3>
+    <div class="articles policy-report">
+      {{{data.policy.report}}}
+    </div>
+    <h3 id="case_studies">{{#labels}}{{policy_case_studies}}{{/labels}}</h3>
+    <div class="articles policy-case">
+      {{{data.policy.case}}}
+    </div>
+    <h3 id="the_knowledge_bank">{{#labels}}{{policy_the_knowledge_bank}}{{/labels}}</h3>
+    <div class="articles policy-bank">
+      {{{data.policy.bank}}}
+    </div>
+  </div>
+
+</article>

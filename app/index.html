@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <script src="tmpScripts/jquery.min.js"></script>
+    <script src="tmpScripts/handlebars-v2.0.0.js"></script>
+    <script src="tmpScripts/data.js"></script>
+    <script src="tmpScripts/loadTemplate.js"></script>
+
+    <meta charset="utf-8">
+    <title>A4AI</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Chivo:400,900|PT+Serif:400,700|Archivo+Black|Open+Sans:400,300,600,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="./styles/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles/wesCountry.min.css">
+    <link rel="stylesheet" href="./styles/a4ai.css">
+
+    <script src="./scripts/libraries/wesCountry.min.js"></script>
+    <script src="./scripts/libraries/jquery.min.js"></script>
+    <script src="./scripts/libraries/scrolledIntoView.js"></script>
+  </head>
+  <body>
+    <script>
+      this.mode = "debug";
+
+      var view = window.location.hash ? window.location.hash.substring(1) : 'data';
+
+      loadPartials(['loading', 'social', 'visualisation', 'infographic-country',
+        'data-country-search', 'data-country',
+        'data-map', 'data-list'], function() {
+        loadTemplate(view, jsonData);
+      });
+    </script>
+    <div id="content"></div>
+
+  </body>
+</html>

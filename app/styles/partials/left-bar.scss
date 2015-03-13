@@ -1,0 +1,163 @@
+/* LEFT BAR */
+
+aside.left-bar {
+  padding: 0;
+
+  h1 {
+    background-color: #fff;
+    float: none;
+    font-weight: 300;
+    margin-bottom: 0.5em;
+    padding-left: 0.2em;
+
+    @media (min-width: $size-sm) {
+      padding-left: 0.4em;
+    }
+
+    @media (min-width: $size-md) {
+      padding-left: 0;
+    }
+  }
+
+  nav {
+    background-color: #fff;
+    padding: 0;
+
+    @media (min-width: $size-md) {
+      padding: 0.5em 0.2em;
+      margin-top: 0.5em;
+    }
+
+    @media (max-width: $size-md) {
+      margin-bottom: 1em;
+    }
+  }
+
+  .bar {
+    height: 1.5em;
+    @include background-image(linear-gradient(to bottom, #fff, rgba(#fff, 0.5)));
+  }
+
+  li > ul {
+    display: none;
+  }
+
+  .tags {
+    @media (max-width: $size-md) {
+      width: 100%;
+
+      li {
+        width: 100%;
+        padding: 0;
+      }
+
+      a {
+        width: 100%;
+      }
+    }
+  }
+}
+
+aside.left-bar.fixed {
+  @media (max-width: $size-sm) {
+    width: 100%;
+
+    nav {
+      width: 100%;
+    }
+
+    &:not(.opened) {
+      li:not(.active) {
+        display: none;
+      }
+    }
+  }
+}
+
+section.right-content {
+  padding: 0 0.5em;
+
+  @media (min-width: $size-sm) {
+    padding: 0 1em;
+  }
+}
+
+@media (min-width: $size-md) {
+  aside.left-bar {
+    width: 25%;
+    float: left;
+    padding: 0 0 0 1em;
+
+    h1 {
+      font-size: 2em;
+      text-align: left;
+      margin-bottom: 0.5em;
+      background-color: transparent;
+    }
+
+    nav {
+      padding: 0;
+      background-color: transparent;
+    }
+
+    .bar {
+      display: none;
+    }
+  }
+
+  aside.left-bar > div {
+    margin-right: 1em;
+  }
+
+  section.right-content {
+    margin-left: 26%;
+  }
+
+  section.right-content article:first-child h2:first-child, section.right-content h2:first-child {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: $size-lg) {
+  aside.left-bar {
+    width: 15em;
+    float: left;
+  }
+
+  section.right-content {
+    margin-left: 16em;
+    margin-bottom: 30em;
+  }
+}
+ /* FIXED */
+
+ @media (min-width: $size-sm) {
+   .absolute {
+     position: absolute;
+   }
+ }
+
+ .fixed {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 4000;
+
+   @media (min-width: $size-md) {
+     left: initial;
+   }
+
+   h1 {
+     display: none;
+   }
+ }
+
+  @media (min-width: $size-md) {
+    .fixed {
+      top: 5em;
+
+      h1 {
+        display: block;
+      }
+    }
+  }

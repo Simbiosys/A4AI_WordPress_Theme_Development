@@ -1,0 +1,27 @@
+/* Loading */
+
+section.loading-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100%;
+  z-index: 7000;
+
+  @media (min-width: $size-md) {
+    min-height: 50em;
+  }
+
+  &.initial {
+    background-color: #fff;
+  }
+
+  i.fa-spinner {
+    font-size: 8em;
+    margin-left: -0.4em;
+    position: absolute;
+    left: 50%;
+    top: 43%;
+    color: $a4ai-blue;
+  }
+}

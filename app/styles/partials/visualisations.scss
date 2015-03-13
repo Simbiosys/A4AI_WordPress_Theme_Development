@@ -1,0 +1,568 @@
+/* Visualisations page */
+
+div.entry.visualisations {
+  margin-top: 2em;
+
+  h1 {
+    text-align: center;
+    float: none;
+  }
+
+  .visualisation-wrapper {
+    margin-top: 3em;
+    margin-bottom: 1em;
+
+    h2 {
+      margin-bottom: 0;
+      color: #aaa;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+      padding: 0 0.2em;
+
+      @media (min-width: $size-md) {
+        text-align: left;
+      }
+
+      nav.social {
+        position: static !important;
+        float: right;
+        font-size: 0.5em;
+        padding: 0.5em 0;
+
+        @media (min-width: $size-md) {
+          padding: 0;
+        }
+
+        ul {
+          li {
+            text-align: center;
+            padding-top: 0;
+
+            @media (min-width: $size-md) {
+              text-align: right;
+            }
+
+            a {
+              font-size: 2em;
+
+              @media (min-width: $size-md) {
+                font-size: 1.6em;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    iframe {
+      width: 100%;
+      height: 40em;
+      border: 1px solid #ddd;
+      box-shadow: 0px 1px 5px #aaa;
+    }
+
+    section.copy {
+      width: 100%;
+      margin-bottom: 1em;
+
+      p {
+        color: #888;
+        margin: 1em 0;
+        font-size: 0.9em;
+
+        @media (min-width: $size-md) {
+          font-size: 1em;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        height: 6em;
+        border: none;
+        background-color: #eee;
+        padding: 1em;
+        color: #555;
+
+        @media (min-width: $size-md) {
+          height: 3em;
+        }
+      }
+    }
+  }
+}
+
+/* Visualisations */
+
+.no-header {
+  div.visualisation-container {
+    min-height: inherit !important;
+  }
+}
+
+div.visualisation-container {
+  width: 100%;
+  position: relative;
+  font-family: arial, sans-serif;
+
+  @media (min-width: $size-md) {
+    height: 100%;
+    min-height: 50em;
+  }
+
+  header {
+    @media (min-width: $size-md) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+  }
+
+  @media (max-width: $size-md) {
+    .button-wrapper {
+      margin: 0.5em 0.5em 0.5em 0;
+    }
+  }
+
+  @media (max-width: $size-md) {
+    .better-worse {
+      font-size: 0.7em;
+    }
+  }
+
+  g.bubble {
+    cursor: pointer;
+  }
+
+  i.fa-search {
+    font-size: 1.5em;
+  }
+
+  footer {
+    overflow: hidden;
+    padding-bottom: 0.5em;
+
+    .asterisk {
+      padding: 0.5em;
+      color: #999;
+
+      @media (min-width: $size-md) {
+        padding: 0.5em 2.5em;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 1.5em;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+    color: #444;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    margin-bottom: 0.5em;
+
+    @media (min-width: $size-md) {
+      padding-top: 0.2em;
+      padding-left: 0.7em;
+      font-size: 2.5em;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $size-lg) {
+      font-size: 3.5em;
+    }
+  }
+
+  .graph {
+    g.empty {
+      text {
+        fill: none;
+      }
+    }
+
+    g.over-empty {
+      text {
+        fill: none;
+      }
+    }
+
+    g.empty.opened {
+      circle {
+        fill: transparent;
+        stroke: #ccc;
+      }
+    }
+
+    g.texts {
+      &.opened {
+        text {
+          fill: none;
+        }
+
+        text.opened-selected {
+          fill: initial;
+        }
+      }
+
+      &.over {
+        text {
+          fill: none;
+        }
+
+        text.over-selected {
+          fill: initial;
+        }
+      }
+
+      g.hidden {
+        display: none;
+      }
+    }
+
+    g.over {
+      &[data-group-type='developing'] {
+        circle {
+          fill: rgba(darken($a4ai-blue, 15%), 0.6);
+          stroke: none;
+        }
+      }
+
+      &[data-group-type='emerging'] {
+        circle {
+          fill: rgba(darken($a4ai-orange, 15%), 0.6);
+          stroke: none;
+        }
+      }
+
+      text {
+        fill: #555;
+      }
+    }
+  }
+
+  article.selectors {
+    margin: 0.5em;
+
+    @media (min-width: $size-md) {
+      margin: 0;
+      left: auto !important;
+      right: 12%;
+      position: absolute;
+    }
+
+    .request-box {
+      position: absolute;
+    }
+  }
+
+  article.info {
+    position: absolute;
+    z-index: 1000;
+    top: 0.5em;
+    left: 0;
+    right: 0;
+    padding: 0.5em 1em 1em 1em;
+    overflow: hidden;
+    box-shadow: 0px 2px 5px 0px #aaa;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: none;
+
+    @media (min-width: $size-md) {
+      left: 50%;
+      right: inherit;
+      margin-left: -10em;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .close {
+      float: right;
+      margin-top: 0.6em;
+      cursor: pointer;
+
+      img {
+        width: 1.5em;
+      }
+    }
+
+    .flag {
+      width: 2.5em;
+      height: 2.5em;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      vertical-align: middle;
+      margin-right: 1em;
+      float: left;
+    }
+
+    .country-name {
+      font-size: 1.5em;
+      padding-top: 0.3em;
+      display: inline-block;
+    }
+
+    p.value {
+      clear: both;
+      min-width: 20em;
+      margin-top: 1em;
+      float: left;
+
+      .text {
+        color: #888;
+        float: left;
+      }
+
+      .value {
+        float: right;
+      }
+    }
+
+    div.extra {
+      clear: both;
+      padding-top: 1em;
+
+      .title {
+        font-weight: 500;
+        text-align: center;
+        position: relative;
+
+        &:before {
+          border-top: 1px solid #dfdfdf;
+          content:"";
+          margin: 0 auto;
+          position: absolute;
+          top: 50%; left: 0; right: 0; bottom: 0;
+          width: 100%;
+          z-index: -1;
+        }
+
+        span {
+          background-color: #fff;
+          padding: 0 0.5em;
+        }
+      }
+    }
+  }
+
+  div.powered {
+    margin: 0 0.5em;
+    text-transform: lowercase;
+    color: #aaa;
+
+    @media (min-width: $size-md) {
+      margin: 0 1em;
+    }
+
+    @media (min-width: $size-md-lg) {
+      margin: 0 2.5em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 1em 0;
+      max-height: 4em;
+
+      @media (min-width: $size-sm) {
+        display: inline-block;
+        margin: 0 1em 0 0;
+      }
+    }
+  }
+
+  ul.legend {
+    padding: 0.5em 0.5em 0 0.5em;
+    list-style: none;
+    overflow: hidden;
+    margin-top: 1em;
+    font-size: 0.8em;
+    border-top: 1px solid #ddd;
+
+    @media (min-width: $size-xs) {
+      padding: 0.5em 2em 0 0;
+    }
+
+    @media (min-width: $size-md) {
+      font-size: 1em;
+      margin-top: 0;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    li {
+      float: right;
+      margin-left: 3em;
+      color: #aaa;
+      font-size: 1.3em;
+      font-weight: 100;
+      width: 100%;
+      padding-bottom: 0.5em;
+      text-align: right;
+
+      @media (min-width: $size-xs) {
+        width: auto;
+        padding-bottom: 0;
+        text-align: left;
+      }
+
+      span.circle {
+        display: inline-block;
+        width: 1.4em;
+        height: 1.4em;
+        border-radius: 50%;
+        margin-right: 0.5em;
+        vertical-align: middle;
+        float: right;
+        margin-left: 0.5em;
+
+        @media (min-width: $size-xs) {
+          float: none;
+          margin-left: 0;
+        }
+
+        &.emerging {
+          background-color: $a4ai-orange;
+        }
+
+        &.developing {
+          background-color: $a4ai-blue;
+        }
+      }
+    }
+  }
+
+  .checks {
+    margin-left: 0.5em;
+
+    @media (min-width: $size-md) {
+      margin-left: 1.5em;
+      margin-top: 0.5em;
+    }
+
+    input {
+      margin-left: 1em;
+    }
+
+    input[type=checkbox] {
+      position: absolute;
+      z-index: -1000;
+      left: -1000px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      width: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+    }
+
+    input[type=checkbox] + label {
+      padding-left: 25px;
+      height: 15px;
+      display: inline-block;
+      line-height: 15px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      font-size: 0.9em;
+      vertical-align: middle;
+      cursor: pointer;
+
+    }
+
+    input[type=checkbox]:checked + label {
+      background-position: 0 -15px;
+    }
+
+    label {
+      background-image:url(../images/checkbox.png);
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      margin-bottom: 0.5em;
+      cursor: pointer;
+
+      @media (min-width: $size-md) {
+        margin-left: 1em;
+      }
+    }
+  }
+
+  .division-text {
+    font-size: 0.5em;
+    letter-spacing: 0.1em;
+
+    @media (min-width: $size-sm) {
+      font-size: 1em;
+    }
+
+    @media (min-width: $size-md) {
+      font-size: 2em;
+    }
+  }
+
+  .title-x {
+    text-align: center;
+    color: #aaa;
+    font-size: 1em;
+    font-weight: 100;
+    padding-right: 7%;
+
+    @media (min-width: $size-sm) {
+      font-size: 1.5em;
+    }
+
+    .glyph-icon {
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: 0.5em;
+    }
+  }
+
+  .title-y {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #aaa;
+    font-size: 1em;
+    font-weight: 100;
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform-origin: 100% 200%;
+    -ms-transform-origin: 100% 200%;
+    -webkit-transform-origin: 100% 200%;
+    width: 25em;
+    text-align: center;
+
+    @media (max-width: $size-md) {
+      margin-top: 2.5em;
+      text-align: left;
+    }
+
+    @media (max-width: $size-lg) {
+      margin-right: -0.5em;
+    }
+
+    @media (min-width: $size-sm) {
+      font-size: 1.5em;
+    }
+
+    .glyph-icon {
+      vertical-align: middle;
+      display: inline-block;
+      margin: 0 0 0 0.5em !important;
+      transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      &:before {
+        margin-left: 0;
+      }
+    }
+  }
+}

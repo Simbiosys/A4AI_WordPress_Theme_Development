@@ -1,0 +1,41 @@
+<section class="infographic">
+  <article class="post static_page">
+    <h1>{{#labels}}{{affordability_hub_title}}{{/labels}}</h1>
+    <div class="emerging">
+      <h2><span>{{#labels}}{{top_five_emerging}}{{/labels}}</span></h2>
+      {{#data.hub.countries.emerging}}
+        {{>infographic-country}}
+      {{/data.hub.countries.emerging}}
+    </div>
+    <div class="developing">
+      <h2><span>{{#labels}}{{top_five_developing}}{{/labels}}</span></h2>
+      {{#data.hub.countries.developing}}
+        {{>infographic-country}}
+      {{/data.hub.countries.developing}}
+    </div>
+  </article>
+</section>
+
+<article class="post static_page infographic-text">
+  <div class="entry">
+    <nav class="hub-links">
+      <a href="{{host}}/affordability-report/report" class="report-link parallelogram">
+        <div class="link-content">
+          <i class="fa fa-book fa-5x"></i>
+          <p class="text">{{#labels}}{{{read_the_report}}}{{/labels}}</p>
+        </div>
+      </a>
+      <a href="{{host}}/affordability-report/data" class="data-link parallelogram">
+        <div class="link-content">
+          <i class="fa fa-area-chart fa-5x"></i>
+          <p class="text">{{#labels}}{{{explore_the_data}}}{{/labels}}</p>
+        </div>
+      </a>
+    </nav>
+    <section class="hub-text">
+      {{{data.hub.content}}}
+    </section>
+  </div>
+</article>
+<script src="{{path}}/scripts/libraries/snap.svg-min.js"></script>
+<script src="{{path}}/scripts/affordability-report.js"></script>

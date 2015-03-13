@@ -1,0 +1,50 @@
+<input type="hidden" id="path" value="{{path}}"></input>
+
+<article class="post static_page report-post">
+  <div class="entry report">
+    <aside class="left-bar">
+      <h1>{{#labels}}{{report_chapters_title}}{{/labels}}</h1>
+      <nav>
+        <ul class="report-left-tags tags">
+          <li><a href="#table-of-contents"><span class="number"><i class="fa fa-list"></i></span> <span class="text">{{#labels}}{{table_of_contents}}{{/labels}}</span></a></li>
+          {{{data.report.ul}}}
+        </ul>
+      </nav>
+    </aside>
+    <section class="right-content report-articles">
+      <p class="text-right">
+        <a href="{{#labels}}{{report_download_link}}{{/labels}}"><i class="fa fa-file-pdf-o"></i> {{#labels}}{{report_download_label}}{{/labels}}</a>
+      </p>
+      <h1>{{#labels}}{{report_title}}{{/labels}}</h1>
+      <nav class="report-table-contents">
+        <h2>{{#labels}}{{table_of_contents}}{{/labels}}</h2>
+        <ol id="table-of-contents">
+          {{{data.report.table}}}
+          <li>
+          {{#labels}}{{list_of_figures}}{{/labels}} <i class='fa fa-angle-down fa-2x'></i>
+          <ul>
+            {{#data.report.figures}}
+              <li><a href="#{{id}}">{{caption}}</a></li>
+            {{/data.report.figures}}
+            <li><a href="#internet-disparity-chart">Figure 1. Internet Users: Urban vs Rural</a></li>
+            <li><a href="#affordability-index-chart">Figure 2. Affordability Index Scores and Broadband Prices</a></li>
+            <li><a href="#affordability-graphic">Figure 3. Foundations of Internet Affordability</a></li>
+            <li><a href="#itus-cluster-chart">Figure 4. Broadband Strategies and Prices</a></li>
+            <li><a href="#itus-ieaa-chart">Figure 5. Electrification Rates and Broadband Prices</a></li>
+          </ol>
+        </li>
+      </nav>
+
+      <div class="articles">
+        {{{data.report.content}}}
+      </div>
+    </section>
+  </div>
+  <link rel="stylesheet" href="{{path}}/styles/wesCountry.min.css">
+  <script src="{{path}}/scripts/libraries/wesCountry.min.js"></script>
+  <script src="{{path}}/scripts/report-charts.js"></script>
+
+  <script src="{{path}}/scripts/libraries/scrolledIntoView.js"></script>
+  <script src="{{path}}/scripts/left-bar.js"></script>
+  <script src="{{path}}/scripts/report.js"></script>
+</article>

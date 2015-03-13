@@ -1,0 +1,66 @@
+// bower:scss
+// endbower
+
+@import "bourbon/bourbon";
+
+@import "partials/constants";
+@import "partials/colours";
+
+/* Original Theme CSS */
+@import "partials/theme";
+
+/* Partials */
+
+@import "partials/loading";
+@import "partials/social";
+@import "partials/left-bar";
+@import "partials/report";
+@import "partials/affordability-report";
+@import "partials/data";
+
+/* Data partials */
+
+@import "data/map";
+@import "data/list";
+
+/* Visualisations */
+
+@import "partials/visualisations";
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+body, html {
+  height: 100%;
+}
+
+.no-header {
+  height: 100%;
+
+  #TopNav, #Header {
+    display: none;
+  }
+}
+
+.policy-post {
+  div.introduction {
+    font-size: 1.2em;
+  }
+
+  h3 {
+    margin: 1em 0 0.5em 0 !important;
+  }
+
+  .articles {
+    margin-bottom: 1em !important;
+  }
+}

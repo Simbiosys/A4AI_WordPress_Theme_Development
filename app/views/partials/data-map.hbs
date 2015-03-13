@@ -1,0 +1,108 @@
+<input type="hidden" id="api" value="{{api}}" />
+<input type="hidden" id="path" value="{{path}}" />
+<input type="hidden" id="wpcontent" value="{{wpcontent}}" />
+
+<input type="hidden" id="value-label" value="{{#labels}}{{value}}{{/labels}}" />
+<input type="hidden" id="ranking-label" value="{{#labels}}{{ranking}}{{/labels}}" />
+<input type="hidden" id="map-label" value="{{#labels}}{{click_on_a_country}}{{/labels}}" />
+<input type="hidden" id="no-result-label" value="{{#labels}}{{no_results}}{{/labels}}" />
+
+{{>data-country}}
+<section class="indicator-detail" id="indicator-detail">
+  <div class="indicator-detail-wrapper">
+    <header>
+      <a href="/data" class="close" id="close-indicator" title="{{#labels}}{{close}}{{/labels}}">
+        <img src="{{path}}/images/cross.png" alt="{{#labels}}{{close}}{{/labels}}" />
+      </a>
+      <span>{{#labels}}{{indicator_info}}{{/labels}}</span>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            {{#labels}}{{code}}{{/labels}}
+          </th>
+          <th>
+            {{#labels}}{{description}}{{/labels}}
+          </th>
+        </tr>
+      </thead>
+      <tbody id="indicator-table"></tbody>
+    </table>
+  </div>
+</section>
+<section class="blank" id="blank"></section>
+{{>loading}}
+<div id="charts" class="data-charts">
+  <article class="selectors post static_page">
+    <div class="entry">
+      <div class="indicator-select-wrapper">
+        <label for="indicator-selector" class="label">{{#labels}}{{select_indicator}}{{/labels}}</label>
+        <div class="button-wrapper">
+          <div class="select-wrapper">
+            <select id="indicator-selector"></select>
+          </div>
+          <button id="btn-indicator">
+            <span>{{#labels}}{{indicator_go}}{{/labels}}</span>
+          </button>
+        </div>
+        <p class="source">
+          {{#labels}}{{source}}{{/labels}}: <span class="source" id="source"></span>
+        </p>
+      </div>
+      {{>data-country-search}}
+    </div>
+  </article>
+  <div class="download-info">
+    <div>
+      <a href="{{#labels}}{{data_file_link}}{{/labels}}" target="_blank">
+        <i class="fa fa-download"></i>
+      </a>
+      <span class="label">{{#labels}}{{data_file_label}}{{/labels}}</span>
+    </div>
+    <div>
+      <a href="#" target="_blank" id="indicator-info-button">
+        <span>i</span>
+      </a>
+      <span class="label">{{#labels}}{{indicator_info}}{{/labels}}</span>
+    </div>
+  </div>
+  <div id="map" class="data-map"></div>
+  <div class="map-legend">
+    <div>
+      <div class="legend-item">
+        <span class="circle emerging"></span>
+        <span class="text">Emerging countries</span>
+      </div>
+      <div class="legend-item">
+        <span class="circle developing"></span>
+        <span class="text">Developing countries</span>
+      </div>
+    </div>
+  </div>
+  <section class="data-bars-wrapper">
+    <div class="switch">
+      <input type="radio" name="switch1" id="switch1_by_rank" class="" checked="checked" />
+      <label for="switch1_by_rank" class="option">{{#labels}}{{by_rank}}{{/labels}}</label></td><td>
+      <input type="radio" name="switch1" id="switch1_by_name" class="" />
+      <label for="switch1_by_name" class="option">{{#labels}}{{by_name}}{{/labels}}</label></td><td>
+    </div>
+    <div id="bars" class="data-bars"></div>
+  </section>
+  <div id="pies" class="data-pies">
+    <div class="line-behind">
+      <span>{{#labels}}{{average_affordability}}{{/labels}}</span>
+    </div>
+    <div class="data-pies-wrapper">
+      <label>{{#labels}}{{emerging_countries}}{{/labels}}</label>
+      <div>
+        <div id="pies-emerging" class="global-pie"></div>
+      </div>
+      <label>{{#labels}}{{developing_countries}}{{/labels}}</label>
+      <div>
+        <div id="pies-developing" class="global-pie"></div>
+      </div>
+      <p class="indicator-scale"></p>
+    </div>
+  </div>
+</div>

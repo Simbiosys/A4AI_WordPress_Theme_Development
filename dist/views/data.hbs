@@ -1,0 +1,34 @@
+<link rel="stylesheet" type="text/css" href="{{path}}/styles/flags.css">
+<link rel="canonical" href="http://a4ai.org/data" />
+<div class="data-container">
+  <div class="data-wrapper">
+    {{>data-map}}
+    <div class="arrow-down">
+      <a href="#country-list">
+        <img src="{{path}}/images/down.png" />
+      </a>
+    </div>
+  </div>
+  <div class="data-country-list" id="country-list">
+    <div class="line-behind">
+      <span>{{#labels}}{{country_list}}{{/labels}}</span>
+    </div>
+    {{>data-list}}
+  </div>
+</div>
+
+<script src="{{path}}/scripts/libraries/scrolledIntoView.js"></script>
+<script src="{{path}}/scripts/libraries/wesCountry.min.js"></script>
+<script src="{{path}}/scripts/settings.js"></script>
+<script src="{{path}}/scripts/data/functions.js"></script>
+<script src="{{path}}/scripts/data/map.js"></script>
+<script src="{{path}}/scripts/data/list.js"></script>
+
+<!-- Inital data load -->
+<script>
+  var initialData = {{{data.data_initial.data}}};
+  $(function() {
+    if (window.loadInitialData)
+      window.loadInitialData(initialData);
+  });
+</script>

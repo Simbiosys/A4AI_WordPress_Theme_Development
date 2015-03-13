@@ -1,0 +1,25 @@
+<div class="country-search-wrapper">
+  <form class="country-search" role="search" action="JavaScript:void(0)">
+    <label>
+      <span class="screen-reader-text">{{#labels}}{{search_country}}{{/labels}}</span>
+      <input type="search" id="search" class="search-field" autocomplete="off" placeholder="{{#labels}}{{search_country}}{{/labels}}" value="" name="s" title="{{#labels}}{{search_country}}{{/labels}}">
+    </label>
+    <button>
+      <i class="fa fa-search fa-2x"></i>
+    </button>
+  </form>
+  <div class="button-wrapper country-selector">
+    <div class="select-wrapper">
+      <select id="country-selector">
+        <option value="" selected="selected" disabled="disabled">
+          {{#labels}}{{select_country}}{{/labels}}
+        </option>
+      </select>
+    </div>
+    <button id="btn-country">
+      <span>{{#labels}}{{indicator_go}}{{/labels}}</span>
+    </button>
+  </div>
+  <div id="request-box" class="request-box"></div>
+</div>
+<script src="{{path}}/scripts/data/search.js"></script>

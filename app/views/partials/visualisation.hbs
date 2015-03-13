@@ -1,0 +1,87 @@
+<link rel="stylesheet" type="text/css" href="{{path}}/styles/flaticon.css">
+<link rel="stylesheet" type="text/css" href="{{path}}/styles/flags.css">
+
+<input type="hidden" id="api" value="{{api}}" />
+<input type="hidden" id="path" value="{{path}}" />
+<input type="hidden" id="wpcontent" value="{{wpcontent}}" />
+
+<input type="hidden" id="no-result-label" value="{{#labels}}{{no_results}}{{/labels}}" />
+<input type="hidden" id="title1-label" value="{{#labels}}{{visualisation1_title}}{{/labels}}" />
+<input type="hidden" id="title2-label" value="{{#labels}}{{visualisation2_title}}{{/labels}}" />
+
+{{>loading}}
+<div class="visualisation-container">
+  <header>
+    <h1 id="visualisation-title"></h1>
+    <form class="checks type-checks" action="">
+      <input type="checkbox" name="checkbox" id="view_emerging" value="emerging" checked="checked">
+      <label for="view_emerging">{{#labels}}{{show_emerging}}{{/labels}}</label>
+
+      <input type="checkbox" name="checkbox" id="view_developing" value="developing" checked="checked">
+      <label for="view_developing">{{#labels}}{{show_developing}}{{/labels}}</label>
+    </form>
+    <form class="checks other-checks" action="">
+      <input type="checkbox" name="checkbox" id="size_proportion" value="size" checked="checked">
+      <label for="size_proportion">{{#labels}}{{size_proportion}}{{/labels}}</label>
+    </form>
+  </header>
+  <article class="selectors">
+    {{>data-country-search}}
+  </article>
+  <article class="info">
+    <p>
+      <a class="close"><img src='{{path}}/images/cross.png' alt='Close' /></a>
+      <img src="" class="flag" />
+      <span class="country-name"></span>
+    </p>
+    <p class="value value-x"></p>
+    <p class="value value-y"></p>
+    <div class="extra">
+      <p class="title"><span>Extra info</span></p>
+      <p class="value value-population"></p>
+      <p class="value value-gni"></p>
+      <p class="value value-poverty"></p>
+    </div>
+  </article>
+  <div class="graph">
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+    <div class="title-x">
+      <span class="glyph-icon"></span>
+      <span class="text"></span>
+    </div>
+    <div class="title-y">
+      <span class="text"></span>
+      <span class="glyph-icon"></span>
+    </div>
+  </div>
+  <footer class=visualisation-footer>
+    <p class="asterisk">
+      <i class="fa fa-asterisk"></i>
+      {{#labels}}{{visualisation_india_china}}{{/labels}}
+    </p>
+    <ul class="legend">
+      <li>
+        <span class="circle emerging"></span>
+        <span>{{#labels}}{{emerging_countries}}{{/labels}}
+      </li>
+      <li>
+        <span class="circle developing"></span>
+        <span>{{#labels}}{{developing_countries}}{{/labels}}
+      </li>
+    </ul>
+    <div class="powered">
+      {{#labels}}{{powered_by}}{{/labels}}
+      <div class="logos">
+        <a href="http://a4ai.org" target="_blank">
+          <img alt="A4AI.org logo" src="{{path}}/images/logo.png" />
+        </a>
+        <a href="http://webfoundation.org" target="_blank">
+          <img alt="webfoundation.org logo" src="{{path}}/images/wwwf-dark.png" />
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="{{path}}/scripts/libraries/snap.svg-min.js"></script>
+<script src="{{path}}/scripts/settings.js"></script>

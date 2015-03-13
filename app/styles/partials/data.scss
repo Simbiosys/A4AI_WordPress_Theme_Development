@@ -1,0 +1,47 @@
+div.data-container {
+  .data-wrapper {
+    position: relative;
+  }
+}
+
+div.arrow-down {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0.5%;
+  min-height: 1em;
+  text-align: center;
+  display: none;
+
+  @media (min-width: $size-md) {
+    display: block;
+  }
+
+  img {
+    width: 2.5em;
+  }
+}
+
+div.values {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+
+  label {
+    width: 50%;
+    display: inline-block;
+    float: left;
+  }
+
+  label.value, label.ranking {
+    text-align: right;
+    color: $data-value-colour;
+    font-weight: 500;
+  }
+
+  label.value-label, label.ranking-label {
+    color: $data-value-label;
+    font-weight: 300;
+    color: $data-value-label;
+  }
+}

@@ -1,0 +1,46 @@
+nav.social {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 25% 0.5em 0.5em;
+  box-shadow: 0 5px 5px -5px #bbb;
+
+  @media (min-width: $size-md-lg) {
+    top: 0.3em;
+    right: 5em;
+    left: inherit;
+    width: 30%;
+    box-shadow: none;
+    padding: 0;
+    position: absolute;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      float: left;
+      width: 25%;
+      text-align: left;
+
+      a {
+        text-align: center;
+        font-size: 1.4em;
+        color: #aaa;
+        display: inline-block;
+        padding-top: 0.05em;
+
+        @media (min-width: $size-md-lg) {
+          font-size: 1.8em;
+        }
+
+        i.fa-twitter {
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
+}

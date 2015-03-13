@@ -1,0 +1,13 @@
+{{>visualisation}}
+<script src="{{path}}/scripts/visualisation1.js"></script>
+<script src="{{path}}/scripts/visualisation.js"></script>
+
+<!-- Inital data load -->
+<script>
+  var initialData = {{{data.visualisation1.data}}};
+
+  $(function() {
+    if (window.loadInitialData)
+      window.loadInitialData(initialData);
+  });
+</script>
