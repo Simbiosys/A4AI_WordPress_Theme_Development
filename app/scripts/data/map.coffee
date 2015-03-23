@@ -140,15 +140,16 @@ setPageHeight = ->
 ################################################################################
 
 global.openCountry = (code, name) ->
-	if code
-		selectCountry(code)
-		selectBar(code)
+  if code
+    selectCountry(code)
+    selectBar(code)
+    global.functions.selectCountryInSelector(code)
 
-		@hideRequestBox()
-		global.sref.search.value = name
-		global.previousSearch = name.toUpperCase()
+    @hideRequestBox()
+    global.sref.search.value = name
+    global.previousSearch = name.toUpperCase()
 
-		loadCountryDetail(code)
+    loadCountryDetail(code)
 
 global.functions.selectCountryInSelector = (area) ->
   global.ref.country_selector.value = area
