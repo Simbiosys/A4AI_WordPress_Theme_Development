@@ -33,12 +33,13 @@ global.visualisation = {
   xAxis: {
     values: [25, 50, 75],
     width: 20,
+    min: 0,
     max: 100
   },
   yAxis: {
-    values: [25, 50, 75],
+    values: [25, 50],
     width: 20,
-    max: 100,
+    max: 60,
     lowToHigh: false
   },
   radius: {
@@ -48,7 +49,7 @@ global.visualisation = {
   },
   divisions: {
     show: true,
-    texts: ["PROHIBITIVE", "AFFORDABLE", "NOT AFFORDABLE", "MORE AFFORDABLE"]
+    texts: ["NOT AFFORDABLE", "AFFORDABLE", "LESS AFFORDABLE", "MORE AFFORDABLE"]
   },
   labelMargin: 15,
   hasInnerBubble: true,

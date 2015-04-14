@@ -36,7 +36,7 @@
     var encoded_url, head, script;
     if (!this.settings.debug) {
       encoded_url = encodeURIComponent(url);
-      url = "" + this.settings.server.path + "/renderization/data/api.php?url=" + encoded_url;
+      url = "" + this.settings.server.path + "/renderization/data/api.php?data&url=" + encoded_url;
     }
     head = document.head;
     script = document.createElement("script");

@@ -215,7 +215,7 @@ setTitles = (container) ->
   icon?.className = "glyph-icon flaticon-#{global.visualisation.indicator2.icon}"
 
 getXCoordinate = (value, innerWidth, leftMargin) ->
-  leftMargin + value * innerWidth / global.visualisation.xAxis.max
+  leftMargin + (value - global.visualisation.xAxis.min) * innerWidth / (global.visualisation.xAxis.max - global.visualisation.xAxis.min)
 
 getYCoordinate = (value, innerHeight, topMargin) ->
 	if global.visualisation.yAxis.lowToHigh
@@ -330,7 +330,7 @@ renderAxis = ->
 		s_canvas.removeChild(s_canvas.lastChild)
 
 	width = c.clientWidth
-	height = width
+	height = c.clientHeight
 
 	if global.screenWidth > global.minWidthForLabels
 		height = c.clientHeight
@@ -375,7 +375,7 @@ renderAxis = ->
 	})
 
 	xAxisTextY = xAxisY1 + global.visualisation.xAxis.width * 0.8
-	xAxisValueY = xAxisY1 - global.visualisation.xAxis.width * 0.9
+	xAxisValueY = xAxisY1 - global.visualisation.xAxis.width * 1.1
 
 	# WORSE
 	global.visualisation.svg.text(xAxisX1, xAxisTextY, "WORSE").attr({

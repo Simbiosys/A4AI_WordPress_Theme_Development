@@ -33,7 +33,8 @@ global.visualisation = {
   xAxis: {
     values: [25, 50, 75],
     width: 20,
-    max: 100
+    min: 12,
+    max: 80
   },
   yAxis: {
     values: [25, 50, 75],

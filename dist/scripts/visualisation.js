@@ -219,7 +219,7 @@
   };
 
   getXCoordinate = function(value, innerWidth, leftMargin) {
-    return leftMargin + value * innerWidth / global.visualisation.xAxis.max;
+    return leftMargin + (value - global.visualisation.xAxis.min) * innerWidth / (global.visualisation.xAxis.max - global.visualisation.xAxis.min);
   };
 
   getYCoordinate = function(value, innerHeight, topMargin) {
@@ -365,7 +365,7 @@
       s_canvas.removeChild(s_canvas.lastChild);
     }
     width = c.clientWidth;
-    height = width;
+    height = c.clientHeight;
     if (global.screenWidth > global.minWidthForLabels) {
       height = c.clientHeight;
       footerHeight = (_ref1 = document.querySelector("footer.visualisation-footer")) != null ? _ref1.clientHeight : void 0;
@@ -403,7 +403,7 @@
       stroke: "none"
     });
     xAxisTextY = xAxisY1 + global.visualisation.xAxis.width * 0.8;
-    xAxisValueY = xAxisY1 - global.visualisation.xAxis.width * 0.9;
+    xAxisValueY = xAxisY1 - global.visualisation.xAxis.width * 1.1;
     global.visualisation.svg.text(xAxisX1, xAxisTextY, "WORSE").attr({
       fill: global.visualisation.colours.axis_text,
       "text-anchor": "start",

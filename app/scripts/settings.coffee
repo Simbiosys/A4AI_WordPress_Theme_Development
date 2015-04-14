@@ -33,7 +33,7 @@ settings = {
 @processJSONP = (url) ->
   if !@settings.debug
     encoded_url = encodeURIComponent(url)
-    url = "#{@settings.server.path}/renderization/data/api.php?url=#{encoded_url}"
+    url = "#{@settings.server.path}/renderization/data/api.php?data&url=#{encoded_url}"
 
   head = document.head
   script = document.createElement("script")
