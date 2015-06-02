@@ -53,5 +53,9 @@
   "policy_the_knowledge_bank": "The Knowledge Bank",
   "policy_affordability_report": "Affordability Report",
   "policy_best_practices": "Best Practices",
-  "policy_research": "Policy & Research"
+  "policy_research": "Policy & Research",
+  "report_download_label_es": "Descarga la versión PDF (en Español)",
+  "report_download_link_es": "/wp-content/uploads/2015/05/Informe-de-Asequibilidad-2014-de-A4AI_FINAL.pdf",
+  "report_download_label_pt": "Baixa a versão PDF (em Português)",
+  "report_download_link_pt": "/wp-content/uploads/2015/06/A4AI-Affordability-Report_Portuguese_Final.pdf"
 }
